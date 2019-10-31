@@ -88,6 +88,6 @@ while n != 0:
     print("All tasks complete! I'll be listening :)")
 
   #work queue object will be garbage collected by Python automatically when it goes out of scope
-  sys.exit(0)
+sys.exit(0)
 
  
