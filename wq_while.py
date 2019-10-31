@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
 blast_path = "/home/cosimichele/ncbi-blast-2.9.0+/bin/blastn"
 if not os.path.exists(blast_path):
-  blast_path = "/home/cosimichele/ncbi-blast-2.9.0+/blastn"
+  blast_path = "/home/cosimichele/ncbi-blast-2.9.0+/bin/blastn"
   if not os.path.exists(blast_path):
     print("gzip was not found. Please modify the gzip_path variable accordingly. To determine the location of gzip, from the terminal type: which gzip (usual locations are /bin/gzip and /usr/bin/gzip)")
     sys.exit(1);
@@ -51,11 +51,12 @@ n = 1
 while n != 0:  
   for i in range(1, len(sys.argv)):
     infile = "%s" % sys.argv[i]
-    outfile = "%s.fa" % sys.argv[i]
-
+    outfile = "%s.out" % sys.argv[i]
+    print(outfile)
       # Note that we write ./gzip here, to guarantee that the gzip version we
       # are using is the one being sent to the workers.
-    command = "./blastn -query < %s > -db ~/db/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa  -out %s" % (infile, outfile)
+#    command = "./gzip < %s > %s" % (infile, outfile)
+    command = "./blastn -query %s -db /home/cosimichele/db/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa -out %s" % (infile, outfile)
 
     t = Task(command)
 
@@ -76,6 +77,7 @@ while n != 0:
     print("submitted task (id# %d): %s" % (taskid, t.command))
 
     print("waiting for tasks to complete...")
+    print(t)
     while not q.empty():
         t = q.wait(5)
         if t:
@@ -84,10 +86,8 @@ while n != 0:
             # The task failed. Error handling (e.g., resubmit with new parameters, examine logs, etc.) here
               None
       #task object will be garbage collected by Python automatically when it goes out of scope
-
+    n = 0
     print("All tasks complete! I'll be listening :)")
 
   #work queue object will be garbage collected by Python automatically when it goes out of scope
 sys.exit(0)
-
- 
