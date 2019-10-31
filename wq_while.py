@@ -47,33 +47,33 @@ except:
 print("listening on port %d..." % q.port)
 
   # We create and dispatch a task for each filename given in the argument list
-  n = 1
-  while n != 0:  
-    for i in range(1, len(sys.argv)):
-        infile = "%s" % sys.argv[i]
-        outfile = "%s.fa" % sys.argv[i]
+n = 1
+while n != 0:  
+  for i in range(1, len(sys.argv)):
+    infile = "%s" % sys.argv[i]
+    outfile = "%s.fa" % sys.argv[i]
 
       # Note that we write ./gzip here, to guarantee that the gzip version we
       # are using is the one being sent to the workers.
-        command = "./blastn -query < %s > -db ~/db/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa  -out %s" % (infile, outfile)
+    command = "./blastn -query < %s > -db ~/db/Drosophila_melanogaster.BDGP6.22.dna.toplevel.fa  -out %s" % (infile, outfile)
 
-        t = Task(command)
+    t = Task(command)
 
       # gzip is the same across all tasks, so we can cache it in the workers.
       # Note that when specifying a file, we have to name its local name
       # (e.g. gzip_path), and its remote name (e.g. "gzip"). Unlike the
       # following line, more often than not these are the same.
-        t.specify_file(blast_path, "blastn", WORK_QUEUE_INPUT, cache=True)
+    t.specify_file(blast_path, "blastn", WORK_QUEUE_INPUT, cache=True)
 
       # files to be compressed are different across all tasks, so we do not
       # cache them. This is, of course, application specific. Sometimes you may
       # want to cache an output file if is the input of a later task.
-        t.specify_file(infile, infile, WORK_QUEUE_INPUT, cache=False)
-        t.specify_file(outfile, outfile, WORK_QUEUE_OUTPUT, cache=False)
+    t.specify_file(infile, infile, WORK_QUEUE_INPUT, cache=False)
+    t.specify_file(outfile, outfile, WORK_QUEUE_OUTPUT, cache=False)
 
       # Once all files has been specified, we are ready to submit the task to the queue.
-        taskid = q.submit(t)
-        print("submitted task (id# %d): %s" % (taskid, t.command))
+    taskid = q.submit(t)
+    print("submitted task (id# %d): %s" % (taskid, t.command))
 
     print("waiting for tasks to complete...")
     while not q.empty():
