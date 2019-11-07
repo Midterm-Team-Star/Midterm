@@ -95,9 +95,9 @@ while True:
         command = readCMD(file)
         removeCMD(file)
         cmDict = parseCMD(command)
-        cmDict['wqCMD']['-db'] = "'/home/u12/cosi/Data/mouse.1.protein.faa'"
+        cmDict['wqCMD']['-db'] = "'/home/<U_NUMBER>/<HPC_USERNAME>/Data/mouse.1.protein.faa'"
 	#	cmDict['sqCMD']['SEQ'] = str(cmDict['sqCMD']['SEQ']).replace('/home/cosimichele/','/home/u12/cosi/')
-	cmDict['CMD'] = cmDict['CMD'].replace("'/home/cosimichele/Data/mouse.1.protein.faa'","'/home/u12/cosi/Data/mouse.1.protein.faa'") 
+	cmDict['CMD'] = cmDict['CMD'].replace("'/home/<username>/Data/mouse.1.protein.faa'","'/home/<U_NUMBER>/<HPC_USERNAME>/Data/mouse.1.protein.faa'") 
         print(cmDict)
         t = wq.Task(cmDict['CMD'])
 
