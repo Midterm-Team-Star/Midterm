@@ -20,7 +20,7 @@
 # 0.0 Introduction
 
 
-#### This set of scripts allows the user to run Sequenceserver BLAST searches using an HPC machine. Our work is based off the BLASTEasy Sequenceserver2.0 Atmosphere  Virtual Machine (VM).
+#### This set of scripts allows the user to run Sequenceserver BLAST searches using an HPC machine. Our work is based off the BLASTEasy Sequenceserver2.0 Atmosphere  Virtual Machine (VM). This setup works such as the Virtual Machine will be the MASTER, and the HPC will work as the WORKER.
 
 
 ## 0.1 Requirements
