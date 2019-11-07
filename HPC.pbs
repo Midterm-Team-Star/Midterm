@@ -8,8 +8,8 @@
 
 module load unsupported
 module load ferng/glibc
-export CCTOOLS_HOME=/home/u12/cosi/cctools-7.0.19-x86_64-centos7
+
+export CCTOOLS_HOME=/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7
 export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-cd /home/u12/cosi/cosi-workers
-/home/u12/cosi/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory  128.196.142.81 6000 -T local -w 50
+/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory  <IP_ADDRESS> <PORT> -T local -w 50
