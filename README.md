@@ -1,18 +1,20 @@
-## SS HPC Integration Scripts
+# SS HPC Integration Scripts
 
-## Index
 
-## 0.0 Introduction
-## 0.1 Requirements
-## 1.0 Installation
-### 1.1 Acquiring the BLASTEasy Sequencesever2.0 Virtual Machine
+# Index
+
+
+#### 0.0 Introduction
+#### 0.1 Requirements
+#### 1.0 Installation
+#### 1.1 Acquiring the BLASTEasy Sequencesever2.0 Virtual Machine
 #### 1.1.1 Setting up the Data directory part 1
-### 1.2 Setting up the HPC
+#### 1.2 Setting up the HPC
 #### 1.2.1 Setting up the Data directory part 2
-### 1.3 Adjusting the database paths
-### 1.4 seqInit.py
-## 2.0 Running SequenceServer with the HPC
-## 3.0 Testing
+#### 1.3 Adjusting the database paths
+#### 1.4 seqInit.py
+#### 2.0 Running SequenceServer with the HPC
+#### 3.0 Testing
 
 ## 0.0 Introduction
 
