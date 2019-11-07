@@ -20,9 +20,7 @@
 # 0.0 Introduction
 
 
-#### This set of scripts allows the user to run Sequenceserver BLAST searches
-#### using an HPC machine. Our work is based off the BLASTEasy Sequenceserver2.0 
-#### Atmosphere  Virtual Machine (VM).
+#### This set of scripts allows the user to run Sequenceserver BLAST searches using an HPC machine. Our work is based off the BLASTEasy Sequenceserver2.0 Atmosphere  Virtual Machine (VM).
 
 
 ## 0.1 Requirements
@@ -38,9 +36,7 @@
 ## 1.1 Acquiring the BLASTEasy Sequencesever2.0 Virtual Machine
 
 
-#### Log into atmo.cyverse.com and launch a new instance.
-#### Choose the TeamBLASTEasy SeqServer 2.0b3 image, with small or medium size.
-#### Launch the instance and remember the IP address.
+#### Log into atmo.cyverse.com and launch a new instance. Choose the TeamBLASTEasy SeqServer 2.0b3 image, with small or medium size. Launch the instance and remember the IP address.
 
 
 ## 1.1.1 Setting up the Data directory part 1
@@ -112,7 +108,7 @@ mv ~/Data ./
 #### Now the Database folder is set
 
 
-# 1.4 seqInit.py
+## 1.4 seqInit.py
 
 
 #### seqInit.py is the initiation script that sequenceserver calls when started.
@@ -134,8 +130,7 @@ mv ./seqInit.py /var/lib/gems/2.5.0/gems/sequenceserver-2.0.0.beta3/lib/
 # 2.0 Running SequenceServer with the HPC
 
 
-#### Assuming that HPC.pbs was already submitted, 
-#### it should now be waiting for the MASTER VM.
+#### Assuming that HPC.pbs was already submitted, it should now be waiting for the MASTER VM.
 
 
 #### On the MASTER VM simply type
@@ -144,7 +139,7 @@ sequenceserver -d /home/<U_NAME>/<HPC_USERNAME>/Data/
 
 #### This will turn on Sequencesever and WorkQueue MASTER.
 #### In your browser, go to your IP address, port 4567.
-<IP address>:4567 #e.g (128.192.35.12:4567)
+#### <IP address>:4567 #e.g (128.192.35.12:4567)
 
 
 #### Sequenceserver should appear.
