@@ -12,4 +12,4 @@ module load ferng/glibc
 export CCTOOLS_HOME=/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7
 export PATH=${CCTOOLS_HOME}/bin:$PATH
 
-/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory  <IP_ADDRESS> <PORT> -T local -w 50
+/home/<U_NUMBER>/<USER>/cctools-7.0.19-x86_64-centos7/bin/work_queue_factory  <IP_ADDRESS> 4568 -T local -w 50
